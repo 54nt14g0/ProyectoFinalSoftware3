@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header background_card text-white">Iniciar Sesión</div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="correo" placeholder="correo@example.com" [(ngModel)]="usuario.correo" name="correo">
+        </div>
+        <div class="mb-3">
+          <label for="contrasena" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena">
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <div style="margin: 15px" class="alert card-header mb-10 text-bg-danger" [hidden]="!sesionFallida">Ingrese nuevamente su correo y contraseña</div>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="loggedIn" class="session-message">
+    <div class="alert alert-success fade show">
+      Sesión Iniciada
+    </div>
+  </div>
