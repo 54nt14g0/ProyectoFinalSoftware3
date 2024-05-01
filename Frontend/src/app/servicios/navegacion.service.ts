@@ -13,7 +13,7 @@ export class NavegacionService {
       .pipe(filter((event): event is NavigationStart => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
         // Guarda la URL actual como cookie justo antes de navegar a una nueva página
-        if(event.url !== '/login'){
+        if(event.url !== '/login' && event.url !== '/registro'){
           this.cookieService.set('currentUrl', event.url);
         }
       });

@@ -5,6 +5,7 @@ import { AuthResponse } from '../modelo/auth-response';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { RegistroRequest } from '../modelo/registro-request';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -20,12 +21,17 @@ export class AuthService {
   public login(loginRequest: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.url}/login`, loginRequest);
   }
+  
 
   public loginT(token: string) {
     this.toggleEvent.next(); // Emite un evento cuando el usuario se autentica
     this.cookieService.set('userState', 'agenda');
     this.setToken(token);
     this.router.navigate(['/']);
+  }
+
+  public registro(registroRequest: RegistroRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.url}/registro`, registroRequest);
   }
 
   public setToken(token: string) {

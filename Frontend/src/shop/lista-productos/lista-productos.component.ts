@@ -1,35 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { CarritoService } from '../../app/servicios/carrito.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ProductoService } from '../../app/servicios/producto.service';
 
 @Component({
   selector: 'app-lista-productos',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div *ngFor="let product of products">
+    <div *ngFor="let producto of productos">
       <div>
-        <h3>{{ product.name }}</h3>
-        <p>Price: {{ product.price | currency  }}</p>
-        <button (click)="anadirAlCarrito(product)">Add to Cart</button>
+        <h3>{{ producto.nombre }}</h3>
+        <p>Price: {{ producto.precioVenta | currency  }}</p>
+        <p>Stock: {{ producto.cantidad }}</p>
+        <button (click)="verDetalles(producto.id_producto)">Ver detalles</button>
       </div>
     </div>
   `,
   styleUrl: './lista-productos.component.css'
 })
 export class ListaProductosComponent implements OnInit{
-  ngOnInit() {}
-
-  products = [
-    { id: 1, name: 'Coffee A', price: 5.0 },
-    { id: 2, name: 'Coffee B', price: 6.5 },
-    // Añade más productos según sea necesario
-  ];
-
-  constructor(private CarritoService: CarritoService) {}
-
-  anadirAlCarrito(producto: any) {
-    this.CarritoService.anadirAlCarrito(producto);
+  productos: any[] = [];
+  ngOnInit() {
+    this.obtenerProductos();
   }
 
+  obtenerProductos() {
+    this.productoService.obtenerProductos().subscribe(
+      (data: any) => {
+        this.productos = data.respuesta;
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+  }
+
+  
+
+  constructor(private router: Router, private productoService: ProductoService) {}
+
+  verDetalles(productId: number) {
+    // Aquí puedes definir la ruta a la que deseas redirigir, por ejemplo:
+    this.router.navigate(['/detalle-producto', productId]);
+  }
 }

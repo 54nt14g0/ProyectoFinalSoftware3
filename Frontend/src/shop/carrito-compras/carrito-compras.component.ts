@@ -11,11 +11,11 @@ import { CommonModule } from '@angular/common';
       <h2>Cart</h2>
       <ul>
         <li *ngFor="let item of cartItems">
-          <span>{{ item.name }} - {{ item.price | currency }}</span>
-          <button (click)="removerDelCarrito(item.id)">Remove</button>
+          <span>{{ item.nombre }} - {{ item.precio | currency }}</span>
+          <button (click)="removerDelCarrito(item.id)">Remover</button>
         </li>
       </ul>
-      <button (click)="limpiarCarrito()">Clear Cart</button>
+      <button (click)="limpiarCarrito()">Limpiar carrito</button>
     </div>
     <div *ngIf="cartItems.length === 0">
       <p>The cart is empty</p>

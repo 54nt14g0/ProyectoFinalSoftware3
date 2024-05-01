@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header background_card text-white">Registrarse</div>
+    <div class="card-body">
+      <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
+            <div *ngIf="registroForm.get('nombre')?.hasError('required') && registeredPressed"> 
+                El nombre es requerido.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Apellido" formControlName="apellido">
+            <div *ngIf="registroForm.get('apellido')?.hasError('required') && registeredPressed"> 
+              El apellido es requerido.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="correo" placeholder="correo@example.com" formControlName="correo">
+          <div *ngIf="registroForm.get('correo')?.hasError('required') && registeredPressed"> 
+            El correo es requerido.
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="contrasena" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="contrasena" formControlName="contrasena">
+          <div *ngIf="registroForm.get('contrasena')?.hasError('required') && registeredPressed"> 
+            La contraseña es requerido.
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="Direccion" placeholder="Direccion" formControlName="direccion">
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="telefono" placeholder="Telefono" formControlName="telefono">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <div style="margin: 15px" class="alert card-header mb-10 text-bg-danger" [hidden]="!sesionFallida">Ingrese nuevamente su correo y contraseña</div>
+      </form>
+    </div>
+  </div>
