@@ -8,10 +8,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuariosRepo extends JpaRepository<Usuarios, Long> {
-    @Query("SELECT u FROM Usuarios u WHERE u.correo = ?1")
-    Usuarios obtener(String correo);
+    @Query("SELECT u FROM Usuarios u JOIN FETCH u.usuarioPedidosList WHERE u.id_usuario = ?1")
+    Usuarios obtener(Long id);
 
     boolean existsByCorreo(String correo);
 
     Optional<Usuarios> findByCorreo(String correo);
+
 }

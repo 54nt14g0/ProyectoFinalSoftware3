@@ -46,11 +46,10 @@ public class AuthService {
                 .rol(request.getRol())
                 .foto(request.getFoto())
                 .build();
-
         try {
             this.usuariosServicio.registrarUsuario(usuario);
             return AuthResponse.builder()
-                    .token(jwtService.getToken(usuario))
+                    .token("Si")
                     .error(null)
                     .build();
         } catch (Exception var4) {

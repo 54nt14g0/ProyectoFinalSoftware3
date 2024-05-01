@@ -6,6 +6,7 @@
 package co.edu.uniquindio.cafeclick.modelo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class Pedidos {
     )
     private @NotNull Long id_pedido;
     private @NotNull Date fechaPedido;
-    private @NotNull Date fechaEntrega;
+    private Date fechaEntrega;
     @Column(
         length = 10
     )
@@ -57,7 +58,7 @@ public class Pedidos {
     @JoinColumn(
         name = "id_usuario"
     )
-    @JsonIgnoreProperties({"usuarioPedidosList"})
+    @JsonManagedReference
     private Usuarios usuario;
     @ManyToOne
     @JoinColumn(

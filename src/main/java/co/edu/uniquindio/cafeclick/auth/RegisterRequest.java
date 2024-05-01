@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 public class RegisterRequest {
-    String usuario;
     String nombre;
     String apellido;
     String correo;

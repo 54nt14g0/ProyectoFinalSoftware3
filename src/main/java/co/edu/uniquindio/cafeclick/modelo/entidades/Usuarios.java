@@ -55,11 +55,11 @@ public class Usuarios implements UserDetails {
     @Column(
         length = 255
     )
-    private String direccion;
+    private @NotNull String direccion;
     @Column(
         length = 15
     )
-    private String telefono;
+    private @NotNull String telefono;
     @Column(
         length = 10
     )
