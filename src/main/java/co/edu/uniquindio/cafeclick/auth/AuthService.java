@@ -45,6 +45,7 @@ public class AuthService {
                 .direccion(request.getDireccion())
                 .rol(request.getRol())
                 .foto(request.getFoto())
+                .estado("Activo")
                 .build();
         try {
             this.usuariosServicio.registrarUsuario(usuario);
