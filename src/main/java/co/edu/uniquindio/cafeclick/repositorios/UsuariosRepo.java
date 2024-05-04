@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuariosRepo extends JpaRepository<Usuarios, Long> {
-    @Query("SELECT u FROM Usuarios u JOIN FETCH u.usuarioPedidosList WHERE u.id_usuario = ?1")
+    @Query("SELECT u FROM Usuarios u LEFT JOIN FETCH u.usuarioPedidosList WHERE u.id_usuario = ?1")
     Usuarios obtener(Long id);
 
     boolean existsByCorreo(String correo);

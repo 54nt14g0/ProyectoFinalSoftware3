@@ -41,6 +41,9 @@ public class UsuariosServicioImpl implements UsuariosServicio {
 
     public Optional<Usuarios> obtenerUsuario(Long id) throws Exception {
         Usuarios usuario = this.usuariosRepo.obtener(id);
+        if(usuario.getUsuarioPedidosList() == null){
+            usuario.setUsuarioPedidosList(new ArrayList<>());
+        }
         return Optional.of(usuario);
     }
 
