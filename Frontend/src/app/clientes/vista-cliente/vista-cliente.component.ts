@@ -12,9 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './vista-cliente.component.css'
 })
 export class VistaClienteComponent {
-onSubmitDC() {
-throw new Error('Method not implemented.');
-}
+
   datosBasicosForm: FormGroup;
   datosContactoForm: FormGroup;
   clienteId: number = 0;
@@ -27,7 +25,7 @@ throw new Error('Method not implemented.');
     this.obtenerCliente(this.clienteId);
   }
 
-  constructor(private fb: FormBuilder, private clienteService: ClienteService, private route: ActivatedRoute) { 
+  constructor(private fb: FormBuilder, private clienteService: ClienteService, private route: ActivatedRoute) {
     this.datosBasicosForm = this.fb.group({
       id: [''],
       nombre: [''],
@@ -63,7 +61,14 @@ throw new Error('Method not implemented.');
     );
   }
 
+  validarDatosBasicos() {
+  }
+
   onSubmitDB() {
+    throw new Error('Method not implemented.');
+  }
+
+  onSubmitDC() {
     throw new Error('Method not implemented.');
   }
 

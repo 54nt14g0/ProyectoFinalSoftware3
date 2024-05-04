@@ -9,6 +9,7 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets\fonts\fontawesome-all.min.css">
     <link rel="stylesheet" href="../../../assets\fonts\ionicons.min.css">
 </head>
@@ -16,25 +17,60 @@
 <body id="page-top">
     <div id="wrapper" style="display: flex;">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark"
-            style="background: #302e2e;--bs-dark: #504136;--bs-dark-rgb: 80,65,54; width: 14rem; min-height: 100vh; padding: 0; align-items: flex-start;">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            style="background: #302e2e;">
+            <div class="container-fluid d-flex flex-column p-0"><a
+                    class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="icon ion-coffee"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>cafe click</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>cafe click </span></div>
                 </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="navbar-nav text-light" id="accordionSidebar">
+                <hr class="sidebar-divider my-0" />
+                <ul id="accordionSidebar-1" class="navbar-nav text-light">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i
-                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="listaProductos.html"><i
-                                class="fas fa-user"></i><span>&nbsp;Productos</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html"><i
-                                class="fas fa-user-circle"></i><span>Salir</span></a></li>
+                                class="fas fa-tachometer-alt"></i><span> Dashboard</span></a></li>
+                    <div class="sidebar-heading"></div>
+                    <li class="nav-item">
+                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                                aria-controls="collapse-1" href="#collapse-1" role="button"><i
+                                    class="icon ion-person"></i><span
+                                    style="color: rgba(255, 255, 255, 0.8);">Clientes</span></a>
+                            <div id="collapse-1" class="collapse">
+                                <div class="py-2 collapse-inner"><a class="collapse-item" href="crear-cliente"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Crear cliente</a>
+                                    <hr style="border-color: #302e2e;margin-top: 8px;margin-bottom: 8px;" /><a
+                                        class="collapse-item" href="listar-clientes"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Listar clientes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                                aria-controls="collapse-2" href="#collapse-2" role="button"><i
+                                    class="icon ion-coffee"></i><span>Productos</span></a>
+                            <div id="collapse-2" class="collapse">
+                                <div class="py-2 collapse-inner"><a class="collapse-item" href="crear-producto"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Crear producto</a>
+                                    <hr style="border-color: #302e2e;margin-top: 8px;margin-bottom: 8px;" /><a
+                                        class="collapse-item" href="listar-productos"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Listar productos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                                aria-controls="collapse-3" href="#collapse-3" role="button"><i
+                                    class="icon ion-android-list"></i><span>Pedidos</span></a>
+                            <div id="collapse-3" class="collapse">
+                                <div class="py-2 collapse-inner"><a class="collapse-item" href="crear-pedido"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Crear pedido</a>
+                                    <hr style="border-color: #302e2e;margin-top: 8px;margin-bottom: 8px;" /><a
+                                        class="collapse-item" href="listar-pedidos"
+                                        style="background: #302e2e;color: rgba(255,255,255,0.8);">Listar pedidos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                        id="sidebarToggle" type="button"></button></div>
+                <button id="sidebarToggle" class="btn rounded-circle border-0" type="button"></button>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper" style="flex: auto;">
