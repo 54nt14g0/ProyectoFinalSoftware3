@@ -6,11 +6,7 @@
 package co.edu.uniquindio.cafeclick.modelo.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import java.util.Collection;
@@ -33,7 +29,7 @@ public class Usuarios implements UserDetails {
         length = 10,
         unique = true
     )
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private @NotNull Long id_usuario;
     @Column(
         length = 100
@@ -66,6 +62,9 @@ public class Usuarios implements UserDetails {
     private @NotNull String rol;
     @Column
     private String foto;
+    @NotNull
+    @Column
+    private String estado;
     @OneToMany(
         mappedBy = "usuario"
     )
