@@ -17,6 +17,7 @@ export class RegistroComponent {
   sesionFallida = false;
   registroForm: FormGroup;
   registeredPressed: boolean = false;
+  mensajeError = '';
 
   ngOnInit() {
     // Verifica si el usuario ya está autenticado
@@ -39,8 +40,8 @@ export class RegistroComponent {
       apellido: ['', Validators.required],
       correo: ['', Validators.required],
       contrasena: ['', Validators.required],
-      direccion: [''],
-      telefono: ['']
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.required]
     });
   }
 
@@ -54,6 +55,9 @@ export class RegistroComponent {
   }
 
     onSubmit() {
+      if(!this.registeredPressed){
+        this.registeredPressed = true;
+      }
       this.validarValores();
       if (this.registroForm.valid) {
         // Procesar los datos de registro
@@ -75,7 +79,7 @@ export class RegistroComponent {
             if(data.token != null){
             this.router.navigate(['/login']);
             } else {
-              console.log(data.error)
+              this.mensajeError = data.error;
               this.sesionFallida = true;
             }
       },
@@ -84,9 +88,6 @@ export class RegistroComponent {
         this.sesionFallida = true;
       }
       });
-      if(!this.registeredPressed){
-        this.registeredPressed = true;
-      }
     }
   }
   // Verifica si el usuario está autenticado
